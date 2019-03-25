@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 
 
-public class SnakesAndLadders {													//Main method to start the game using the 'conditions' and 'start game' methods
+public class SnakesAndLadders {									//Main method to start the game using the 'conditions' and 'start game' methods
 
 	public static void main(String[] args) {
 		SnakeLadderConditions snakeLadders = new SnakeLadderConditions();
@@ -17,9 +17,9 @@ public class SnakesAndLadders {													//Main method to start the game usin
 
 
 
-class SnakeLadderConditions {																//Conditions to be set
+class SnakeLadderConditions {								//Conditions to be set
 	
-	final static int WINPOINT = 100;														//100 is the winning point
+	final static int WINPOINT = 100;						//100 is the winning point
 	
 	
 	static Map<Integer,Integer> snake = new HashMap<Integer,Integer>();
@@ -41,7 +41,7 @@ class SnakeLadderConditions {																//Conditions to be set
 	
 	
 	
-	public int rollDice() {														//Setting the dice to be randomised when rolled
+	public int rollDice() {							//Setting the dice to be randomised when rolled
 		int dice = 0;
 		
 		Random random = new Random();
@@ -52,7 +52,7 @@ class SnakeLadderConditions {																//Conditions to be set
 	
 	
 	
-	public int calculatePlayerValue(int player, int diceNum) {						// Defines what happens when a player lands a snake or ladder position.
+	public int calculatePlayerValue(int player, int diceNum) {		// Defines what happens when a player lands a snake or ladder position.
 		player = player + diceNum;
 		
 		if(player > WINPOINT)
@@ -76,15 +76,15 @@ class SnakeLadderConditions {																//Conditions to be set
 	}
 	
 	
-	public boolean isWin(int player) {												//Sets up the winning position referring back to 'WINPOINT' in 'snakes&laddersCondition' method
+	public boolean isWin(int player) {					//Sets up the winning position referring back to 'WINPOINT' in 'snakes&laddersCondition' method
 		return WINPOINT == player;
 	}
 	
 
 	
-	public void startGame() {															// 1) Starts the game							
-																						// 2) Ensure that as long as currentPlayer = 1, the first player will start
-		int FirstPlayer = 0, SecondPlayer = 0;											// 3) By pressing 'r' for roll, 'diceValue' will refer to the conditions of 'rollDice' method 																		
+	public void startGame() {							// 1) Starts the game							
+											// 2) Ensure that as long as currentPlayer = 1, the first player will start
+		int FirstPlayer = 0, SecondPlayer = 0;					// 3) By pressing 'r' for roll, 'diceValue' will refer to the conditions of 'rollDice' method 																		
 		int currentPlayer = 1;																						
 		Scanner scanner = new Scanner(System.in);
 		String roll;
@@ -98,12 +98,12 @@ class SnakeLadderConditions {																//Conditions to be set
 			
 			
 			if(currentPlayer == 1) {
-				FirstPlayer = calculatePlayerValue(FirstPlayer,diceValue);					// 4) Refers to 'calculatePlayerValue' method to determine players current positions
+				FirstPlayer = calculatePlayerValue(FirstPlayer,diceValue);		// 4) Refers to 'calculatePlayerValue' method to determine players current positions
 				System.out.println("First Player Score	: " + FirstPlayer);
 				System.out.println("Second Player Score	: " + SecondPlayer);
 				System.out.println("------------------");
 				
-				if(isWin(FirstPlayer)) {													// 5) Refers to 'isWin' method that determines when a player reaches 100.
+				if(isWin(FirstPlayer)) {						// 5) Refers to 'isWin' method that determines when a player reaches 100.
 					System.out.println("FIRST PLAYER WINS!!!");
 					return;
 				}
@@ -118,7 +118,7 @@ class SnakeLadderConditions {																//Conditions to be set
 					System.out.println("SECOND PLAYER WINS!!!");
 					return;
 				}
-			} currentPlayer = -currentPlayer;												// 6) Allows switching of players
+			} currentPlayer = -currentPlayer;					// 6) Allows switching of players
 			
 		}while("r".equals(roll));
 	
